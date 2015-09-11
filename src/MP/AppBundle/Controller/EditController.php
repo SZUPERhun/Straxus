@@ -8,6 +8,6 @@ class EditController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('AppBundle:Edit:index.html.twig');
+        return $this->render('AppBundle:Edit:edit.html.twig');
     }
 }

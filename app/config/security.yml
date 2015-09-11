@@ -25,6 +25,7 @@ security:
         - { path: ^/edit, role: ROLE_EDITOR }
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: ROLE_ADMIN
-        ROLE_EDITOR:      ROLE_EDITOR
+        ROLE_USER: ROLE_USER
+        ROLE_ADMIN: [ROLE_USER, ROLE_EDITOR]
+        ROLE_EDITOR: ROLE_EDITOR
+        ROLE_SUPER_USER : [ROLE_USER, ROLE_EDITOR]
