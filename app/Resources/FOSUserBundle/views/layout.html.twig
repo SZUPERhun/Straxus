@@ -1,0 +1,40 @@
+{% extends "AppBundle::base.html.twig" %}
+{% block body %}
+    <body>
+        <header class="container-fluid">
+            <div class="pull-right">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <nav>
+                        {% block headerlinks %}{% endblock %}   
+                    </nav>
+                {% endif %}
+            </div>
+        </header>
+        
+        {% for type, messages in app.session.flashBag.all %}
+            {% for message in messages %}
+                <div class="{{ type }}">
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        
+        {% block formheader %}{% endblock %}
+
+        <div class="container-fluid formtypes">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                {% block fos_user_content %}
+                {% endblock fos_user_content %}
+            </div>
+        </div>
+        <br>
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            {% block anotherbuttons %}
+            {% endblock anotherbuttons%}
+        </div>
+
+    </body>
+</html>
+{% endblock %}

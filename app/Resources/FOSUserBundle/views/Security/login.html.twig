@@ -1,0 +1,13 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block headerlinks %}
+    <a href="/profile">Profile</a>
+    <a href="{{ path('fos_user_security_logout') }}">
+        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+    </a>
+{% endblock %}
+{% block fos_user_content %}
+{% include "FOSUserBundle:Security:login_content.html.twig" %}
+{% endblock fos_user_content %}
+{% block anotherbuttons %}
+    {% include "FOSUserBundle:Security:login_anotherbuttons.html.twig" %}
+{% endblock anotherbuttons %}

@@ -1,0 +1,25 @@
+{% block formheader %}
+    <div class="page-header">
+        <h1>Login</h1>
+    </div>
+{% endblock %}
+    {% if error %}
+        <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+    {% endif %}
+
+    <form action="{{ path("fos_user_security_check") }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        
+        <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+        <input class="form-control" placeholder="Username"
+               type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+        <br>
+        <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+        <input class="form-control" placeholder="Password"
+               type="password" id="password" name="_password" required="required" />
+        <br>
+        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+        <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+        <br>
+        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" class="btn-snoreable" />
+    </form>
