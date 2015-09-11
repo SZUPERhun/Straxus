@@ -1,5 +1,5 @@
-{% extends "AppBundle::base.html.twig" %}
+{% extends "AppBundle::site_layout.html.twig" %}
 
-{% block body %}
-Hello User!
-{% endblock %}
+{% block content %}
+{% include "AppBundle:User:user_content.html.twig" %}
+{% endblock content %}

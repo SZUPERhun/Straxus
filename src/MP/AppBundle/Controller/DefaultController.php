@@ -8,6 +8,14 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('AppBundle:Default:default.html.twig');
+        if ($this->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('AppBundle:User')->find($this->getUser()->getId());
+        }
+        else {
+            $entity = NULL;
+        }
+        return $this->render('AppBundle:Default:default.html.twig', array(
+            'entity' => $entity));
     }
 }

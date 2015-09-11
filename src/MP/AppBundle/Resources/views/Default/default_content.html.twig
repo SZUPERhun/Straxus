@@ -1,2 +1,9 @@
 Hello Main!
-
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+<br>
+Név: {{ entity.getUserName }}
+<br>
+Szerepkörök: {{ entity.getRolesString }}
+<br>
+Utolsó belépés: {{ entity.getLastLoginString }}
+{% endif %}

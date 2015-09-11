@@ -1,5 +1,5 @@
-{% extends "AppBundle::base.html.twig" %}
+{% extends "AppBundle::site_layout.html.twig" %}
 
-{% block body %}
-Hello Editor!
-{% endblock %}
+{% block content %}
+{% include "AppBundle:Edit:edit_content.html.twig" %}
+{% endblock content %}

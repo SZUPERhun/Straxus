@@ -5,15 +5,24 @@
             <div class="pull-right">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <nav>
+                            <a href="/">Main</a>
                         {% if is_granted("ROLE_ADMIN") %}
+                            <a href="/admin">Admin</a>
+                        {% endif %}
+                        {% if is_granted("ROLE_USER") %}
                             <a href="/user">User</a>
                         {% endif %}
-                        {% if is_granted("ROLE_ADMIN") %}
+                        {% if is_granted("ROLE_EDITOR") %}
                             <a href="/edit">Edit</a>
                         {% endif %}
                         <a href="{{ path('fos_user_security_logout') }}">
                             {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                         </a>  
+                    </nav>
+                {% else %}
+                    <nav>
+                        <a href="/login">Login</a>
+                        <a href="/register">Register</a>
                     </nav>
                 {% endif %}
             </div>
