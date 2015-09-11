@@ -75,7 +75,7 @@ class User extends BaseUser
             return 'Editor + User';
         if (in_array('ROLE_EDITOR', $this->getRoles()))
             return 'Editor';
-        if (in_array('ROLE_USER', $this->getRoles()))
+        if (in_array('ROLE_LUSER', $this->getRoles()))
             return 'User';
     }
 }

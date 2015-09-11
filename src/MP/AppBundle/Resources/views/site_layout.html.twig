@@ -5,11 +5,11 @@
             <div class="pull-right">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <nav>
-                            <a href="/">Main</a>
+                        <a href="/">Main</a>
                         {% if is_granted("ROLE_ADMIN") %}
                             <a href="/admin">Admin</a>
                         {% endif %}
-                        {% if is_granted("ROLE_USER") %}
+                        {% if is_granted("ROLE_LUSER") %}
                             <a href="/user">User</a>
                         {% endif %}
                         {% if is_granted("ROLE_EDITOR") %}
