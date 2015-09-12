@@ -4,3 +4,11 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: mp_user_login_type }
+            
+    security.authentication.failure_handler:
+        class:  MP\AppBundle\Form\Handler\LoginFailureHandler
+        arguments:  ['@doctrine.orm.entity_manager']
+            
+    security.authentication.success_handler:
+        class:  MP\AppBundle\Form\Handler\LoginSuccessHandler
+        arguments:  ['@router', '@doctrine.orm.entity_manager']

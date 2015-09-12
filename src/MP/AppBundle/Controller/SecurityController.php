@@ -41,7 +41,7 @@ class SecurityController extends BaseController
         }
         // last username entered by the user
         $lastUsername = (null === $session) ? '' : $session->get(SecurityContext::LAST_USERNAME);
-
+        
         $csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');
         $form = $this->container->get('form.factory')->create(new LoginFormType('MP\AppBundle\Entity\User'), null);
         return $this->renderLogin(array(
@@ -49,6 +49,14 @@ class SecurityController extends BaseController
             'error'         => $error,
             'csrf_token' => $csrfToken,
             'form' => $form->createView(),
+            'iscaptcha' => $this->isCaptcha($form, $session),
         ));
+    }
+    
+    public function isCaptcha($form, $session) {
+        if ($session->get('iscaptcha') == 'false')
+            return TRUE;
+        else
+            return FALSE;
     }
 }

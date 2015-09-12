@@ -13,3 +13,8 @@ app_admin:
 app_edit:
     path:     /edit
     defaults: { _controller: AppBundle:Edit:index }
+    
+login:
+    path:     /login
+    defaults: { _controller: AppBundle:Security:login }
+    

@@ -94,14 +94,16 @@ class UsernamePasswordFormAuthenticationListener extends BaseListener
             $password = $request->get($this->options['password_parameter'], null, true);
         }
         
-        // throw new BadCredentialsException('Bad credentials');
-        $postdata = $request->request->get('mp_user_login_type');
-        $userCaptcha = $postdata['captcha'];
-        $dummy = $request->getSession()->get('gcb_captcha');
-        $sessionCaptcha = $dummy['phrase'];
+        if ($request->getSession()->get('iscaptcha') == 'false') {
+            // throw new BadCredentialsException('Bad credentials');
+            $postdata = $request->request->get('mp_user_login_type');
+            $userCaptcha = $postdata['captcha'];
+            $dummy = $request->getSession()->get('gcb_captcha');
+            $sessionCaptcha = $dummy['phrase'];
 
-        if ($userCaptcha !== $sessionCaptcha) {
-            throw new BadCredentialsException('Captcha is invalid');
+            if ($userCaptcha !== $sessionCaptcha) {
+                throw new BadCredentialsException('Captcha is invalid');
+            }
         }
 
         $request->getSession()->set(Security::LAST_USERNAME, $username);

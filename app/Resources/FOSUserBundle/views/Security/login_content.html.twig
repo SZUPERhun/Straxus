@@ -17,7 +17,10 @@
         <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
         <input class="form-control" placeholder="Password"
                type="password" id="password" name="_password" required="required" />
-        {{ form_widget(form) }}
+        <br>
+        {% if iscaptcha %}
+            {{ form_widget(form) }}
+        {% endif %}
         <div>
         <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
         <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>

@@ -4,6 +4,7 @@ namespace MP\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Entity\User as BaseUser;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * User
@@ -25,9 +26,9 @@ class User extends BaseUser
     /**
      * @var integer
      * 
-     * @ORM\Column(name="failedattempts", type="integer", nullable=true)
+     * @ORM\Column(name="loginattempts", type="integer", nullable=true)
      */
-    protected $failedattempts;
+    protected $loginattempts;
 
     /**
      * Get id
@@ -45,13 +46,21 @@ class User extends BaseUser
      * @param string $loginattempts
      * @return User
      */
-    public function setLoginAttempts($loginattempts)
-    {
+    public function setLoginAttempts($loginattempts) {
         $this->loginattempts = $loginattempts;
 
         return $this;
     }
-    
+
+    public function addLoginAttempts() {
+        if ($this->loginattempts == NULL)
+            $this->loginattempts = 0;
+
+        $this->loginattempts++;
+
+        return $this;
+    }
+
     /**
      * Get loginattempts
      *
