@@ -1,4 +1,6 @@
 services:
-#    app.example:
-#        class: MP\AppBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    mp_user.form.type.login:
+        class: MP\AppBundle\Form\Type\LoginFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: mp_user_login_type }

@@ -7,6 +7,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    security.authentication.listener.form.class: MP\AppBundle\Form\Listener\UsernamePasswordFormAuthenticationListener
 
 framework:
     #esi:             ~
@@ -86,3 +87,5 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: MP\AppBundle\Entity\User
+    
+gregwar_captcha: ~
