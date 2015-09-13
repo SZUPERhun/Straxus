@@ -21,8 +21,9 @@ class LoginFailureHandler implements AuthenticationFailureHandlerInterface {
         $username = $_POST['_username'];
         $user = $this->em->getRepository('AppBundle:User')->findOneBy(array('username' => $username));
         $user->addLoginAttempts();
+        $this->em->flush();
         
-        if ($user->getLoginAttempts() == 3)
+        if ($user->getLoginAttempts() > 2)
             $request->getSession()->set('iscaptcha', 'false');
         else
             $request->getSession()->set('iscaptcha', 'true');

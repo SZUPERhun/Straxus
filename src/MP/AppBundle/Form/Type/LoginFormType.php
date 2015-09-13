@@ -22,11 +22,11 @@ class LoginFormType extends AbstractType
     {
         $this->class = $class;
     }
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-            ->add('captcha', 'captcha');
+            ->add('captcha', 'captcha', array('attr' => array('placeholder' => 'Captcha')));
     }
+
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(

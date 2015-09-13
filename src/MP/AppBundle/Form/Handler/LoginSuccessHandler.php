@@ -23,6 +23,7 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface {
         $username = $_POST['_username'];
         $user = $this->em->getRepository('AppBundle:User')->findOneBy(array('username' => $username));
         $user->setLoginAttempts(0);
+        $this->em->flush();
         
         $request->getSession()->set('iscaptcha', 'true');
         
