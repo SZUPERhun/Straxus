@@ -21,10 +21,6 @@
         {% if iscaptcha %}
             {{ form_widget(form) }}
         {% endif %}
-        <div>
-        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-        <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
-        <br>
-        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" class="btn-snoreable" />
-        </div>
+        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" 
+            class="btn btn-primary btn-lg" />
     </form>
