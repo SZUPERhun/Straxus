@@ -1,6 +1,8 @@
 Straxus
 =======
 Az alábbi parancsokkal könnyen telepíthető, frissíthető és futtatható az alkalmazás.
+Ha a scripttel nem sikerülne az adatbázist átmásolni, akkor manuálisan kell. 
+A főmappában található egy sql fájl amit importálni kell (straxus.sql).
 Az alábbi címen érhető el az oldal:
 > **http://127.0.0.1:8000**
 
