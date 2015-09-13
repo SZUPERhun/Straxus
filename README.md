@@ -22,36 +22,40 @@ Futtatás
 
 # II. Felhasználók
 
-Név
+Admin
 ---------------------------
+
+Név:
 > **Admin**
 
-Jelszó
----------------------------
+Jelszó:
 > **admin**
 
-Név
+User
 ---------------------------
+
+Név:
 > **User**
 
-Jelszó
----------------------------
+Jelszó:
 > **user**
 
-Név
+SuperUser
 ---------------------------
+
+Név:
 > **SuperUser**
 
-Jelszó
----------------------------
+Jelszó:
 > **superuser**
 
-Név
+Editor
 ---------------------------
+
+Név:
 > **Editor**
 
-Jelszó
----------------------------
+Jelszó:
 > **editor**
 
 
