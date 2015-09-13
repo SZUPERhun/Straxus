@@ -1,4 +1,8 @@
-Hello Main!
+{% block formheader %}
+    <div class="page-header">
+        <h1>Default</h1>
+    </div>
+{% endblock %}
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 <br>
 Név: {{ entity.getUserName }}

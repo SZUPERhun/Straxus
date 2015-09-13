@@ -7,8 +7,11 @@ services:
             
     security.authentication.failure_handler:
         class:  MP\AppBundle\Form\Handler\LoginFailureHandler
-        arguments:  ['@doctrine.orm.entity_manager']
             
     security.authentication.success_handler:
         class:  MP\AppBundle\Form\Handler\LoginSuccessHandler
         arguments:  ['@router', '@doctrine.orm.entity_manager']
+        
+    security.logout.success_handler:
+        class:  MP\AppBundle\Form\Handler\LogoutSuccessHandler
+        arguments:  ['@router', '@doctrine.orm.entity_manager', '@security.token_storage']

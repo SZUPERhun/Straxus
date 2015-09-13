@@ -18,13 +18,15 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface {
         $this->router = $router;
         $this->em = $em;
     }
-
+    
     public function onAuthenticationSuccess(Request $request, TokenInterface $token) {
-        $username = $_POST['_username'];
+        /*$username = $_POST['_username'];
         $user = $this->em->getRepository('AppBundle:User')->findOneBy(array('username' => $username));
-        $user->setLoginAttempts(0);
-        $this->em->flush();
+        $session = $user->getSession();
+        if ($session != NULL)
+            $request->setSession($session);*/
         
+        $request->getSession()->set('loginattempts', 0);
         $request->getSession()->set('iscaptcha', 'true');
         
         $uri = $this->router->generate('app_homepage');

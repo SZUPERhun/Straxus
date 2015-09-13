@@ -4,7 +4,6 @@ namespace MP\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Entity\User as BaseUser;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * User
@@ -24,11 +23,11 @@ class User extends BaseUser
     protected $id;
     
     /**
-     * @var integer
+     * @var array
      * 
-     * @ORM\Column(name="loginattempts", type="integer", nullable=true)
+     * @ORM\Column(name="session", type="array", nullable=true)
      */
-    protected $loginattempts;
+    protected $session;
 
     /**
      * Get id
@@ -41,34 +40,25 @@ class User extends BaseUser
     }
     
     /**
-     * Set loginattempts
+     * Set session
      *
-     * @param string $loginattempts
+     * @param array $session
      * @return User
      */
-    public function setLoginAttempts($loginattempts) {
-        $this->loginattempts = $loginattempts;
-
-        return $this;
-    }
-
-    public function addLoginAttempts() {
-        if ($this->loginattempts == NULL)
-            $this->loginattempts = 0;
-
-        $this->loginattempts++;
+    public function setSession($session) {
+        $this->session = $session;
 
         return $this;
     }
 
     /**
-     * Get loginattempts
+     * Get session
      *
-     * @return integer 
+     * @return array 
      */
-    public function getLoginAttempts()
+    public function getSession()
     {
-        return $this->loginattempts;
+        return $this->session;
     }
     
     public function getLastLoginString()
