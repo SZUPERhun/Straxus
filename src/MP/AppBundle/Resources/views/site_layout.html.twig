@@ -2,22 +2,28 @@
 {% block body %}
     <body>
         <header class="container-fluid">
-            <div class="pull-right">
+            <div>
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <nav>
-                        <a href="/">Default</a>
-                        {% if is_granted("ROLE_ADMIN") %}
-                            <a href="/admin">Admin</a>
-                        {% endif %}
-                        {% if is_granted("ROLE_LUSER") %}
-                            <a href="/user">User</a>
-                        {% endif %}
-                        {% if is_granted("ROLE_EDITOR") %}
-                            <a href="/edit">Edit</a>
-                        {% endif %}
-                        <a href="{{ path('fos_user_security_logout') }}">
-                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                        </a>  
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <ul class="nav navbar-nav">
+                                <li><a href="/">Default</a></li>
+                                    {% if is_granted("ROLE_ADMIN") %}
+                                    <li><a href="/admin">Admin</a></li>
+                                    {% endif %}
+                                    {% if is_granted("ROLE_LUSER") %}
+                                    <li><a href="/user">User</a></li>
+                                    {% endif %}
+                                    {% if is_granted("ROLE_EDITOR") %}
+                                    <li><a href="/edit">Edit</a></li>
+                                    {% endif %}
+                            </ul>
+                            <ul class = "nav navbar-nav navbar-right">
+                                <li><a href="{{ path('fos_user_security_logout') }}">
+                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                    </a></li>
+                            </ul>
+                        </div>
                     </nav>
                 {% endif %}
             </div>
