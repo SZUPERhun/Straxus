@@ -4,7 +4,6 @@ Straxus
 Straxus által adott tesztfeladat. Felhasználó kezelésről szólt: 
 bejelentkezés, kijelentkezés, hozzáférés csak adott szerepkörrel egyes oldalakra. 
 Symfony keretrendszerben írt webalkalmazás.
--------------------
 
 Az alábbi parancsokkal könnyen telepíthető, frissíthető és futtatható az alkalmazás.
 Ha a scripttel nem sikerülne az adatbázist átmásolni, akkor manuálisan kell. 
